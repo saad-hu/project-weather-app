@@ -27,6 +27,7 @@ body {
     text-transform: capitalize;
     display: flex;
     justify-content: space-around;
+    gap: 40px;
     flex-wrap: wrap;
 }
 
