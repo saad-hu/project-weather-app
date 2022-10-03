@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="./script.js" defer></script>
+    <title>Weather App</title>
+</head>
+
+<body>
+    <form id="userCityInputForm">
+        <label for="cityInput"></label>
+        <input type="text" name="cityInput" id="cityInput">
+        <button type="submit">Enter</button>
+    </form>
+
+    <div class="output-container">
+
+        <div class="essential-info">
+            <div class="description-container"><span class="description"></span></div>
+
+            <div class="city-and-country">
+                <span class="city"></span>, <span class="country"></span>
+            </div>
+
+            <div class="temp"></div>
+        </div>
+
+        <div class="extra-info">
+            <div class="feels-like-container">feels like: <span class="feels-like"></span></div>
+            <div class="humidity-container">humidity: <span class="humidity"></span></div>
+            <div class="max-temp-container">maximum temperature: <span class="max-temp"></span></div>
+            <div class="min-temp-container">minimum temperature: <span class="min-temp"></span></div>
+        </div>
+    </div>
+</body>
+
+</html>

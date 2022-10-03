@@ -1,0 +1,22 @@
+html {
+    box-sizing: border-box;
+}
+
+*, *::after, *::before {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+.output-container {
+    text-transform: capitalize;
+    display: flex;
+}
+
+.essential-info {
+    
+}
+
+.extra-info {
+
+}
