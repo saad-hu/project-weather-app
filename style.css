@@ -8,13 +8,22 @@ html {
     margin: 0;
 }
 
+body {
+    background-image: url(./images/bg1.jpg);
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    color: white;
+}
+
 .output-container {
     text-transform: capitalize;
     display: flex;
 }
 
 .essential-info {
-    
+
 }
 
 .extra-info {
