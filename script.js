@@ -32,7 +32,12 @@ let maxTemp = document.querySelector('.max-temp');
 let minTemp = document.querySelector('.min-temp');
 
 
+
+
 function displayData(data) {
+    getAndDisplayImage(data);
+
+
     console.log(data);
     description.textContent = data.weather[0].description;
     city.textContent = data.name;
@@ -42,6 +47,19 @@ function displayData(data) {
     humidity.textContent = data.main.humidity;
     maxTemp.textContent = data.main.temp_max;
     minTemp.textContent = data.main.temp_min;
+}
+
+let essentailInfoContainer = document.querySelector('.essential-info');
+function getAndDisplayImage(data) {
+    
+    fetch(`http://openweathermap.org/img/wn/${data.weather[0].icon}@4x.png`, { mode: 'cors' })
+        .then(response => {
+            if (response.status === 200) {
+                let weatherImage = document.createElement('img');
+                weatherImage.src = response.url;
+                essentailInfoContainer.prepend(weatherImage);
+            }
+        })
 }
 
 

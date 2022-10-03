@@ -1,3 +1,8 @@
+@font-face {
+    font-family: Roboto;
+    src: url(./fonts/Roboto-Regular.ttf);
+}
+
 html {
     box-sizing: border-box;
 }
@@ -15,17 +20,41 @@ body {
     background-repeat: no-repeat;
     background-attachment: fixed;
     color: white;
+    font-family: Roboto;
 }
 
 .output-container {
     text-transform: capitalize;
     display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
 }
 
 .essential-info {
+    display: flex;
+    align-items: center;
+}
 
+.essential-info-text-container div+div{
+    margin-top: 10px;
+}
+
+.description, .temp {
+    font-size: 50px;
+    font-weight: 500;
+}
+
+.city-and-country {
+    font-size: 25px;
 }
 
 .extra-info {
-
+    padding: 10px 25px;
+    font-size: 19px;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+    min-height: 240px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
 }
