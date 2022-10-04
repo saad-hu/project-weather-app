@@ -1,26 +1,6 @@
 let cityInputForm = document.querySelector('#userCityInputForm');
 let cityInput = document.querySelector('#cityInput');
-
-
-
-cityInputForm.addEventListener('submit', event => {
-    getWeather(cityInput.value);
-    event.preventDefault();
-});
-
-
-
-async function getWeather(locationInput) {
-    let url = `https://api.openweathermap.org/data/2.5/weather?q=${locationInput}&appid=53987a387db6e49e3e3a52912febaad3&units=metric`;
-    fetch(url, { mode: "cors" })
-        .then(response => {
-            if (response.status === 200) return response.json();
-            else throw new Error('Could not find city.');
-        })
-        .then(data => displayData(data))
-        .catch(err => console.log("Error: ", err))
-}
-
+//refernce to every element, in which we have to display info:
 let description = document.querySelector('.description');
 let city = document.querySelector('.city');
 let country = document.querySelector('.country');
@@ -30,7 +10,29 @@ let humidity = document.querySelector('.humidity');
 let maxTemp = document.querySelector('.max-temp');
 let minTemp = document.querySelector('.min-temp');
 
+//at the start, default city's weather will be displayed
+window.addEventListener('load', () => {
+    getWeather('KARACHI', unitSwitchButton.id);
+});
 
+cityInputForm.addEventListener('submit', event => {
+    getWeather(cityInput.value, unitSwitchButton.id);
+    event.preventDefault();
+    cityInputForm.reset();
+});
+
+
+
+async function getWeather(locationInput, unit) {
+    let url = `https://api.openweathermap.org/data/2.5/weather?q=${locationInput}&appid=53987a387db6e49e3e3a52912febaad3&units=${unit}`;
+    fetch(url, { mode: "cors" })
+        .then(response => {
+            if (response.status === 200) return response.json();
+            else throw new Error('Could not find city.');
+        })
+        .then(data => displayData(data))
+        .catch(err => console.log("Error: ", err))
+}
 
 
 function displayData(data) {
@@ -46,7 +48,10 @@ function displayData(data) {
     minTemp.textContent = data.main.temp_min;
 }
 
+
+
 let essentailInfoContainer = document.querySelector('.essential-info');
+
 function getAndDisplayImage(data) {
 
     //first, this block of code checks if the essental info container already has an image or not. if it does, then the if statement code deletes that image. this is useful when we are searching weather for city after city
@@ -67,21 +72,19 @@ function getAndDisplayImage(data) {
 
 
 
-let unitSwitchButton = document.querySelector('#unit-switch-button');
-console.log(unitSwitchButton.classList);
+let unitSwitchButton = document.querySelector('.unit-switch-button');
 let allUnitTemp = document.querySelectorAll('.temp-unit');
 
 unitSwitchButton.addEventListener('click', () => {
 
-        if(unitSwitchButton.classList.contains('metric')) {
+        if(unitSwitchButton.id === 'metric') {
 
             allUnitTemp.forEach((node) =>  {
                 node.classList.remove('metric');
                 node.classList.add('imperial');
             });
 
-            unitSwitchButton.classList.remove('metric');
-            unitSwitchButton.classList.add('imperial');
+            unitSwitchButton.setAttribute('id', 'imperial');
             unitSwitchButton.textContent = ' °C';
         }
         else {
@@ -91,16 +94,11 @@ unitSwitchButton.addEventListener('click', () => {
                 node.classList.add('metric');
             });
 
-            unitSwitchButton.classList.remove('imperial');
-            unitSwitchButton.classList.add('metric');
+            unitSwitchButton.setAttribute('id', 'metric');
             unitSwitchButton.textContent = ' °F';
         }
-});
-
-
-
-window.addEventListener('load', () => {
-    getWeather('KARACHI');
+        //call the api again with the current city and new(switched) unit
+        getWeather(city.textContent, unitSwitchButton.id);
 });
 
 
