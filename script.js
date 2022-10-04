@@ -31,9 +31,8 @@ async function getWeather(locationInput, unit) {
             else throw new Error('Could not find city.');
         })
         .then(data => displayData(data))
-        .catch(err => console.log("Error: ", err))
+        .catch(err => displayError(err));
 }
-
 
 function displayData(data) {
     getAndDisplayImage(data);
@@ -102,3 +101,16 @@ unitSwitchButton.addEventListener('click', () => {
 });
 
 
+//code for error handling starts here
+let errorContainer = document.querySelector('.error-container');
+let errorContent = document.querySelector('.error-content');
+let errorCloseButton = document.querySelector('.error-close-button');
+
+function displayError(err) {
+    errorContent.textContent = err.message;
+    errorContainer.style['display'] = 'flex';
+}
+
+errorCloseButton.addEventListener('click', () => {
+    errorContainer.style['display'] = "none";
+});

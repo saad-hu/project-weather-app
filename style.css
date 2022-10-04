@@ -26,7 +26,7 @@ body {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: space-evenly;
 }
 
 #userCityInputAndUnitForm {
@@ -143,6 +143,28 @@ button.unit-switch-button {
     content: " °F";
 }
 
+.error-container {
+    color: white;
+    background-color: rgba(255, 126, 126, 0.5);
+    width: min(350px, 90%);
+    border-radius: 10px;
+    margin: 0 auto;
+    padding: 10px 20px;
+    /* display flex is added via JS */
+    align-items: center;
+    display: none;
+}
+
+.error-content {
+    font-size: 18px;
+    flex-grow: 1;
+}
+
+.error-close-button {
+    transform: rotate(45deg);
+    font-size: 30px;
+    cursor: pointer;
+}
 
 @media screen and (max-width: 556px) {
 
