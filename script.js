@@ -58,7 +58,7 @@ function getAndDisplayImage(data) {
     if(firstChildOfEssentailInfo.className === 'weather-image') essentailInfoContainer.removeChild(firstChildOfEssentailInfo);
 
 
-    fetch(`http://openweathermap.org/img/wn/${data.weather[0].icon}@4x.png`, { mode: 'cors' })
+    fetch(`https://openweathermap.org/img/wn/${data.weather[0].icon}@4x.png`, { mode: 'cors' })
         .then(response => {
             if (response.status === 200) {
                 let weatherImage = document.createElement('img');
