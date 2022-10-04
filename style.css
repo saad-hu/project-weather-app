@@ -23,14 +23,10 @@ body {
     background-attachment: fixed;
     color: white;
     font-family: Roboto;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
 }
 
 #userCityInputAndUnitForm {
-    padding: 35px;
+    padding: 35px 35px 20px 35px;
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -75,7 +71,7 @@ button.unit-switch-button {
 
 .output-container {
     text-transform: capitalize;
-    padding: 10px 30px 40px 10px;
+    padding: 30px 30px 40px 10px;
     display: flex;
     justify-content: space-around;
     gap: 40px;
@@ -148,7 +144,7 @@ button.unit-switch-button {
     background-color: rgba(255, 126, 126, 0.5);
     width: min(350px, 90%);
     border-radius: 10px;
-    margin: 0 auto;
+    margin: 20px auto;
     padding: 10px 20px;
     /* display flex is added via JS */
     align-items: center;
