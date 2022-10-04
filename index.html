@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="style.css">
     <script src="./script.js" defer></script>
     <title>Weather App</title>
+    <link rel="shortcut icon" href="./images/favicon-128x128.png" type="image/x-icon">
 </head>
 
 <body>
@@ -42,10 +43,25 @@
         </div>
 
         <div class="extra-info">
-            <div class="feels-like-container temp-unit metric">feels like: <span class="feels-like"></span></div>
-            <div class="humidity-container">humidity: <span class="humidity"></span> %</div>
-            <div class="max-temp-container temp-unit metric">max temperature: <span class="max-temp"></span></div>
-            <div class="min-temp-container temp-unit metric">min temperature: <span class="min-temp"></span></div>
+            <div class="feels-like-container">
+                <img src="./images/feels-like-128x128.png">
+                <div class="temp-unit metric">feels like: <span class="feels-like"></span></div>
+            </div>
+
+            <div class="humidity-container">
+                <img src="./images/humidity-128x128.png">
+                <div>humidity: <span class="humidity"></span> %</div>
+            </div>
+
+            <div class="max-temp-container">
+                <img src="./images/max-temp-128x128.png">
+                <div class="temp-unit metric">max temperature: <span class="max-temp"></span></div>
+            </div>
+
+            <div class="min-temp-container">
+                <img src="./images/min-temp-128x128.png">
+                <div class="temp-unit metric">min temperature: <span class="min-temp"></span></div>
+            </div>
         </div>
     </div>
 </body>

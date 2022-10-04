@@ -98,7 +98,9 @@ button.unit-switch-button {
 }
 
 .extra-info {
-    width: min(320px, 90%);
+    width: clamp(350px, 100%, 280px);
+    /* becuase the parent container has uneven left and right margin. margin left to .extra-info is given to even that out when it wraps to the next line */
+    margin-left: 20px;
     min-height: 280px;
     padding: 10px 25px;
     font-size: 20px;
@@ -107,7 +109,17 @@ button.unit-switch-button {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
+}
+
+.extra-info>div {
+    display: flex;
     align-items: center;
+    gap: 10px;
+}
+
+.extra-info img {
+    width: 30px;
+    height: auto;
 }
 
 .temp-unit {
@@ -191,5 +203,14 @@ button.unit-switch-button {
     .extra-info .temp-unit::after {
         font-size: 13px;
         right: -15px;
+    }
+
+    .extra-info img {
+        width: 20px;
+        height: auto;
+    }
+
+    .output-container {
+        padding: 30px 20px 40px 5px;
     }
 }
