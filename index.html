@@ -12,9 +12,15 @@
 
 <body>
     <form id="userCityInputForm">
-        <label for="cityInput"></label>
-        <input type="text" name="cityInput" id="cityInput">
-        <button type="submit">Enter</button>
+        <div class="">
+            <label for="cityInput"></label>
+            <input type="text" name="cityInput" id="cityInput">
+            <button type="submit">Enter</button>
+        </div>
+
+        <div>
+            <button type="button" class="cel" id="unit-switch-button">°F</button>
+        </div>
     </form>
 
     <div class="output-container">
@@ -27,15 +33,15 @@
                     <span class="city"></span>, <span class="country"></span>
                 </div>
     
-                <div class="temp"></div>
+                <div class="temp temp-unit cel"></div>
             </div>
         </div>
 
         <div class="extra-info">
-            <div class="feels-like-container">feels like: <span class="feels-like"></span></div>
+            <div class="feels-like-container temp-unit cel">feels like: <span class="feels-like"></span></div>
             <div class="humidity-container">humidity: <span class="humidity"></span></div>
-            <div class="max-temp-container">maximum temperature: <span class="max-temp"></span></div>
-            <div class="min-temp-container">minimum temperature: <span class="min-temp"></span></div>
+            <div class="max-temp-container temp-unit cel">max temperature: <span class="max-temp"></span></div>
+            <div class="min-temp-container temp-unit cel">min temperature: <span class="min-temp"></span></div>
         </div>
     </div>
 </body>

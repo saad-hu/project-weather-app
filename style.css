@@ -7,7 +7,9 @@ html {
     box-sizing: border-box;
 }
 
-*, *::after, *::before {
+*,
+*::after,
+*::before {
     box-sizing: border-box;
     padding: 0;
     margin: 0;
@@ -21,10 +23,14 @@ body {
     background-attachment: fixed;
     color: white;
     font-family: Roboto;
+    /* display: flex;
+    flex-direction: column;
+    justify-content: space-around; */
 }
 
 .output-container {
     text-transform: capitalize;
+    padding: 0 30px 0 10px;
     display: flex;
     justify-content: space-around;
     gap: 40px;
@@ -36,11 +42,12 @@ body {
     align-items: center;
 }
 
-.essential-info-text-container div+div{
+.essential-info-text-container div+div {
     margin-top: 10px;
 }
 
-.description, .temp {
+.description,
+.temp {
     font-size: 50px;
     font-weight: 500;
 }
@@ -49,13 +56,78 @@ body {
     font-size: 25px;
 }
 
+.temp-unit {
+    position: relative;
+    width: fit-content;
+}
+
+.temp-unit.temp::after {
+    position: absolute;
+    font-size: 20px;
+    font-weight: 900;
+    top: 5px;
+    right: -25px;
+    /* content: " °C"; */
+}
+
 .extra-info {
+    width: min(320px, 90%);
+    min-height: 280px;
     padding: 10px 25px;
-    font-size: 19px;
+    font-size: 20px;
     background-color: rgba(0, 0, 0, 0.5);
     border-radius: 10px;
-    min-height: 240px;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
+    align-items: center;
+}
+
+.extra-info .temp-unit::after {
+    position: absolute;
+    font-size: 15px;
+    font-weight: 900;
+    top: 0px;
+    right: -20px;
+    /* content: " °C"; */
+}
+
+.temp-unit.cel::after {
+    content: " °C";
+}
+
+.temp-unit.fah::after {
+    content: " °F";
+}
+
+@media screen and (max-width: 556px) {
+
+    .description,
+    .temp {
+        font-size: 35px;
+        font-weight: 500;
+    }
+
+    .city-and-country {
+        font-size: 15px;
+    }
+
+    .temp-unit.temp::after {
+        font-size: 15px;
+        right: -20px;
+    }
+
+    .essential-info img {
+        width: 150px;
+        height: auto;
+    }
+
+    .extra-info {
+        font-size: 17px;
+    }
+
+    .extra-info .temp-unit::after {
+        font-size: 13px;
+        right: -15px;
+    }
 }

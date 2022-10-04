@@ -14,7 +14,6 @@ async function getWeather(locationInput) {
     let url = `https://api.openweathermap.org/data/2.5/weather?q=${locationInput}&appid=53987a387db6e49e3e3a52912febaad3&units=metric`;
     fetch(url, { mode: "cors" })
         .then(response => {
-            console.log(response);
             if (response.status === 200) return response.json();
             else throw new Error('Could not find city.');
         })
@@ -37,8 +36,6 @@ let minTemp = document.querySelector('.min-temp');
 function displayData(data) {
     getAndDisplayImage(data);
 
-
-    console.log(data);
     description.textContent = data.weather[0].description;
     city.textContent = data.name;
     country.textContent = data.sys.country;
@@ -51,11 +48,17 @@ function displayData(data) {
 
 let essentailInfoContainer = document.querySelector('.essential-info');
 function getAndDisplayImage(data) {
-    
+
+    //first, this block of code checks if the essental info container already has an image or not. if it does, then the if statement code deletes that image. this is useful when we are searching weather for city after city
+    let firstChildOfEssentailInfo = document.querySelector('.essential-info *:first-child');
+    if(firstChildOfEssentailInfo.className === 'weather-image') essentailInfoContainer.removeChild(firstChildOfEssentailInfo);
+
+
     fetch(`http://openweathermap.org/img/wn/${data.weather[0].icon}@4x.png`, { mode: 'cors' })
         .then(response => {
             if (response.status === 200) {
                 let weatherImage = document.createElement('img');
+                weatherImage.classList.add('weather-image');
                 weatherImage.src = response.url;
                 essentailInfoContainer.prepend(weatherImage);
             }
@@ -64,9 +67,40 @@ function getAndDisplayImage(data) {
 
 
 
+let unitSwitchButton = document.querySelector('#unit-switch-button');
+console.log(unitSwitchButton.classList);
+let allUnitTemp = document.querySelectorAll('.temp-unit');
+
+unitSwitchButton.addEventListener('click', () => {
+
+        if(unitSwitchButton.classList.contains('cel')) {
+
+            allUnitTemp.forEach((node) =>  {
+                node.classList.remove('cel');
+                node.classList.add('fah');
+            });
+
+            unitSwitchButton.classList.remove('cel');
+            unitSwitchButton.classList.add('fah');
+            unitSwitchButton.textContent = ' °C';
+        }
+        else {
+
+            allUnitTemp.forEach((node) =>  {
+                node.classList.remove('fah');
+                node.classList.add('cel');
+            });
+
+            unitSwitchButton.classList.remove('fah');
+            unitSwitchButton.classList.add('cel');
+            unitSwitchButton.textContent = ' °F';
+        }
+});
+
+
 
 window.addEventListener('load', () => {
     getWeather('KARACHI');
-})
+});
 
 
