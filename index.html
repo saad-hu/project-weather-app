@@ -11,14 +11,13 @@
 </head>
 
 <body>
-    <form id="userCityInputForm">
-        <div class="">
-            <label for="cityInput"></label>
-            <input type="text" name="cityInput" id="cityInput">
-            <button type="submit">Enter</button>
+    <form id="userCityInputAndUnitForm">
+        <div class="city-input-container">
+            <input type="text" name="cityInput" id="cityInput" placeholder="enter city">
+            <input type="image" src="./images/search-64x64.png" width="25px" height="25px">
         </div>
 
-        <div>
+        <div class="">
             <button type="button" class="unit-switch-button" id="metric">°F</button>
         </div>
     </form>
@@ -32,7 +31,7 @@
                 <div class="city-and-country">
                     <span class="city"></span>, <span class="country"></span>
                 </div>
-    
+
                 <div class="temp temp-unit metric"></div>
             </div>
         </div>

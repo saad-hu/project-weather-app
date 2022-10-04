@@ -1,4 +1,4 @@
-let cityInputForm = document.querySelector('#userCityInputForm');
+let cityInputForm = document.querySelector('#userCityInputAndUnitForm');
 let cityInput = document.querySelector('#cityInput');
 //refernce to every element, in which we have to display info:
 let description = document.querySelector('.description');
