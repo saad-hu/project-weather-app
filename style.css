@@ -67,7 +67,6 @@ body {
     font-weight: 900;
     top: 5px;
     right: -25px;
-    /* content: " °C"; */
 }
 
 .extra-info {
@@ -89,14 +88,13 @@ body {
     font-weight: 900;
     top: 0px;
     right: -20px;
-    /* content: " °C"; */
 }
 
-.temp-unit.cel::after {
+.temp-unit.metric::after {
     content: " °C";
 }
 
-.temp-unit.fah::after {
+.temp-unit.imperial::after {
     content: " °F";
 }
 

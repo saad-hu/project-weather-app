@@ -73,26 +73,26 @@ let allUnitTemp = document.querySelectorAll('.temp-unit');
 
 unitSwitchButton.addEventListener('click', () => {
 
-        if(unitSwitchButton.classList.contains('cel')) {
+        if(unitSwitchButton.classList.contains('metric')) {
 
             allUnitTemp.forEach((node) =>  {
-                node.classList.remove('cel');
-                node.classList.add('fah');
+                node.classList.remove('metric');
+                node.classList.add('imperial');
             });
 
-            unitSwitchButton.classList.remove('cel');
-            unitSwitchButton.classList.add('fah');
+            unitSwitchButton.classList.remove('metric');
+            unitSwitchButton.classList.add('imperial');
             unitSwitchButton.textContent = ' °C';
         }
         else {
 
             allUnitTemp.forEach((node) =>  {
-                node.classList.remove('fah');
-                node.classList.add('cel');
+                node.classList.remove('imperial');
+                node.classList.add('metric');
             });
 
-            unitSwitchButton.classList.remove('fah');
-            unitSwitchButton.classList.add('cel');
+            unitSwitchButton.classList.remove('imperial');
+            unitSwitchButton.classList.add('metric');
             unitSwitchButton.textContent = ' °F';
         }
 });
