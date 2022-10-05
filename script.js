@@ -87,7 +87,7 @@ function hideOutputContainer(hidden) {
 
         setTimeout(() => {
             outputContainer.classList.remove('hidden');
-        }, 1000);
+        }, 800);
     }
 
 }
