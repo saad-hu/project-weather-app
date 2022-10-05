@@ -32,6 +32,7 @@ body {
     align-items: center;
     gap: 30px;
     flex-wrap: wrap;
+    user-select: none;
 }
 
 .city-input-container {
@@ -51,6 +52,10 @@ input#cityInput {
     outline: none;
     height: 100%;
     flex-grow: 1;
+}
+
+#cityInput::placeholder {
+    color: rgba(255, 255, 255, 0.7);
 }
 
 input#cityInput:focus,

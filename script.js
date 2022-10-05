@@ -16,6 +16,10 @@ let minTemp = document.querySelector('.min-temp');
 let errorContainer = document.querySelector('.error-container');
 let errorContent = document.querySelector('.error-content');
 let errorCloseButton = document.querySelector('.error-close-button');
+//refernce to unit switiching button
+let unitSwitchButton = document.querySelector('.unit-switch-button');
+//reference to all the elements that have units that require unit switching
+let allUnitTemp = document.querySelectorAll('.temp-unit');
 
 
 //at the start, default city's weather will be displayed
@@ -23,6 +27,7 @@ window.addEventListener('load', () => {
     getWeather('KARACHI', unitSwitchButton.id);
 });
 
+//upon user searching a city, this eveent listener trigers
 cityInputForm.addEventListener('submit', event => {
     getWeather(cityInput.value, unitSwitchButton.id);
     event.preventDefault();
@@ -107,8 +112,7 @@ function getAndDisplayImage(data) {
 
 
 
-let unitSwitchButton = document.querySelector('.unit-switch-button');
-let allUnitTemp = document.querySelectorAll('.temp-unit');
+
 
 unitSwitchButton.addEventListener('click', () => {
 
@@ -135,6 +139,7 @@ unitSwitchButton.addEventListener('click', () => {
     //call the api again with the current city and new(switched) unit
     getWeather(city.textContent, unitSwitchButton.id);
 });
+
 
 
 //code for error handling starts here
