@@ -23,6 +23,10 @@ body {
     background-attachment: fixed;
     color: white;
     font-family: Roboto;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none; 
+    user-select: none; 
 }
 
 #userCityInputAndUnitForm {
